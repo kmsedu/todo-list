@@ -1,3 +1,129 @@
-.style-loader-test-class {
-  color: red;
+:root, html, * {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.main-header .header-title-section {
+  flex: 1;
+}
+
+.main-header .header-title {
+  font-size: 2.5rem;
+  padding-left: 2rem;
+}
+
+.main-header .header-project-section {
+  padding-right: 2rem;
+}
+
+.main-window {
+  flex: 1;
+  background: yellow;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: calc(50% - 0.5rem) calc(50% - 0.5rem);
+  padding: 1rem;
+  gap: 1rem;
+  min-height: 0;
+  min-width: 0;
+}
+
+.main-window section {
+  list-style: none;
+  background: blue;
+  display: grid;
+  grid-template-rows: 60px minmax(0, 1fr);
+}
+
+.section-header {
+  background: orange;
+  display: flex;
+  align-items: center;
+}
+
+.section-header-title {
+  padding-left: 2rem;
+}
+
+.todo-section {
+  grid-row: span 2;
+}
+
+.todo-entry {
+  background: pink;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.note-container {
+  overflow-y: auto;
+}
+
+.note-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.note-entry {
+  background: green;
+  padding: 1rem;
+}
+
+.note-entry-title {
+  padding: 1rem 0;
+}
+
+.note-entry-content {
+  padding-bottom: 1rem;
+}
+
+.checklist-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  padding: 1rem;
+  gap: 1rem;
+  overflow: auto;
+}
+
+.checklist-entry {
+  background: magenta;
+  overflow: auto;
+  min-width: 25%;
+  min-height: 250px;
+}
+
+.checklist-entry-title {
+  padding: 1rem 0.5rem;
+}
+
+.checklist-member {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 1rem;
+}
+
+.checklist-entry-member-container > :nth-child(2n-1) {
+  background: white;
+}
+
+.checklist-member-content {
+  flex: 1;
 }
