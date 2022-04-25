@@ -1,16 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;900&family=Hind:wght@400;700&family=Paytone+One&display=swap"
+    rel="stylesheet">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo List</title>
+  <title>Todo</title>
 </head>
+
 <body>
+
+  <div class="entry-form-wrapper form-hidden">
+    <div class="entry-form-container">
+      <form id="project-form" class="form-hidden" autocomplete="off">
+        <h2>New project</h2>
+        <label for="project-form-title">Title:</label>
+        <input type="text" name="project-form-title" id="project-form-title">
+        <button type="button" id="project-form-create-button">Create</button>
+      </form>
+      <form id="todo-form" class="form-hidden" autocomplete="off">
+        <h2>Todo entry</h2>
+        <label for="todo-form-title">Title:</label>
+        <input type="text" name="todo-form-title" id="todo-form-title" required>
+        <label for="todo-form-description">Description:</label>
+        <input type="text" name="todo-form-description" id="todo-form-description"
+          placeholder="Enter Todo description..." required></textarea>
+        <label for="todo-form-due-date">Due Date:</label>
+        <input type="datetime-local" name="todo-form-due-date" id="todo-form-due-date">
+        <fieldset>
+          <legend>Priority:</legend>
+          <label for="todo-form-radio-high">High</label>
+          <input type="radio" name="todo-form-priority" value="high" id="todo-form-radio-high">
+          <label for="todo-form-radio-normal">Normal</label>
+          <input type="radio" name="todo-form-priority" value="normal" id="todo-form-radio-normal" checked>
+          <label for="todo-form-radio-low">Low</label>
+          <input type="radio" name="todo-form-priority" value="low" id="todo-form-radio-low">
+        </fieldset>
+        <button type="button" id="todo-form-create-button">Create</button>
+      </form>
+      <form id="note-form" class="form-hidden" autocomplete="off">
+        <h2>Note entry</h2>
+        <label for="note-form-title">Title:</label>
+        <input type="text" name="note-form-title" id="note-form-title" required>
+        <label for="note-form-content">Note:</label>
+        <textarea name="note-form-content" id="note-form-content" required></textarea>
+        <button type="button" id="note-form-create-button">Create</button>
+      </form>
+      <form id="checklist-form" class="form-hidden" autocomplete="off">
+        <h2>Checklist entry</h2>
+        <label for="checklist-form-title">Title:</label>
+        <input type="text" name="checklist-form-title" id="checklist-form-title" required>
+        <div class="checklist-form-members-label">
+          <p>Checklist:</p>
+          <a class="checklist-form-new-member-button">+</a>
+        </div>
+        <div id="checklist-form-members-container">
+          <div class="checklist-form-default-member">
+            <input type="checkbox">
+            <input type="text" class="checklist-form-member-content"></input>
+          </div>
+        </div>
+        <button type="button" id="checklist-form-create-button">Create</button>
+      </form>
+    </div>
+  </div>
+
   <header class="main-header">
     <section class="header-title-section">
       <h1 class="header-title">
-        <a href="#">Todo List</a>
+        <a href="#">todo</a>
       </h1>
     </section>
 
@@ -18,54 +82,61 @@
       <label for="current-project-select">Current project:</label>
       <select name="current-project-select" id="current-project-select">
         <optgroup>
-          <option>Test</option>
-        </optgroup> 
-        <optgroup>
-          <option>Create new..</option>
         </optgroup>
       </select>
+      <span class="header-project-new-button new-entry-button material-symbols-rounded">add_circle</span>
+      <span class="header-project-delete-button material-symbols-rounded">delete</span>
     </section>
   </header>
   <main class="main-window">
     <section class="todo-section">
       <header class="section-header">
         <h2 class="section-header-title">Todos:</h2>
+        <div class="todo-new-button new-entry-button">
+          <span class="todo-new-button-icon new-entry-button-icon material-symbols-rounded">add_circle</span>
+        </div>
       </header>
       <ul class="todo-list">
-        <li class="todo-entry">
+        <!-- <li class="todo-entry">
           <h3 class="todo-entry-title">Test Todo</h3>
           <p class="todo-entry-duedate">Thursday, 25 April 2022 12:00pm</p>
           <div class="todo-entry-tools">
             <span class="todo-entry-edit-button">E</span>
             <span class="todo-entry-delete-button">X</span>
           </div>
-        </li>
+        </li> -->
       </ul>
     </section>
 
     <section class="note-section">
       <header class="section-header">
         <h2 class="section-header-title">Notes:</h2>
+        <div class="note-new-button new-entry-button">
+          <span class="note-new-button-icon new-entry-button-icon">+</span>
+        </div>
       </header>
-        <div class="note-container">
-          <li class="note-list">
-            <ul class="note-entry">
+      <div class="note-container">
+        <ul class="note-list">
+          <!-- <li class="note-entry">
               <h3 class="note-entry-title">Test Note</h3>
               <p class="note-entry-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem excepturi voluptatem, autem explicabo dolores ipsum.</p>
               <div class="note-entry-tools">
                 <span class="note-entry-edit-button">E</span>
                 <span class="note-entry-delete-button">X</span>
               </div>
-            </ul>
-          </li>
-        </div>
+            </li> -->
+        </ul>
+      </div>
     </section>
     <section class="checklist-section">
       <header class="section-header">
         <h2 class="section-header-title">Checklists:</h2>
+        <div class="checklist-new-button new-entry-button">
+          <span class="checklist-new-button-icon new-entry-button-icon">+</span>
+        </div>
       </header>
       <div class="checklist-container">
-        <div class="checklist-entry">
+        <!-- <div class="checklist-entry">
           <h3 class="checklist-entry-title">Test Checklist</h3>
           <div class="checklist-entry-member-container">
             <div class="checklist-member">
@@ -189,9 +260,10 @@
               <span class="checklist-member-delete-button">X</span>
             </div>
           </div>
-        </div>
-      </div> 
+        </div> -->
     </section>
   </main>
+  </div>
 </body>
+<script> </script>
 </html>

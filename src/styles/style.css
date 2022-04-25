@@ -1,14 +1,47 @@
-:root, html, * {
+:root,
+html {
   box-sizing: border-box;
+  --color-black: hsl(0, 0%, 0%, 1.0);
+  --color-white: rgb(255, 255, 255);
+  --color-primary: #303c4c;
+  --color-primary-light: #5a6678;
+  --color-primary-dark: #091624;
+  --color-secondary: #f3f4f1;
+  --color-secondary-dark: #c0c1be;
+  font-family: 'Heebo', sans-serif;
+}
+
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  cursor: pointer;
+  display: flex;
+  transition: transform 0.3s;
+}
+
+.button-hidden {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
 }
 
 body {
+  background: var(--color-secondary-dark);
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: 900;
+}
+
 .main-header {
+  background: var(--color-primary);
   height: 80px;
   display: flex;
   align-items: center;
@@ -25,11 +58,54 @@ body {
 
 .main-header .header-project-section {
   padding-right: 2rem;
+  color: white;
+}
+
+.header-project-section span:active {
+    transform: scale(1.1);
+}
+
+.header-project-section span:hover {
+  transform: scale(1.2);
+}
+
+.main-header label {
+  font-size: 1rem;
+}
+
+.main-header select, .main-header option {
+  border: none;
+  padding: 0.5em 2rem 0.5em 1rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: white;
+  background:  var(--color-primary-light);
+  outline: none;
+  border-radius: 5px;
+  transition: filter 0.3s;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -5 28 28' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1em;
+}
+
+.main-header select:focus {
+  outline: none;
+}
+
+.main-header select:hover {
+  filter: brightness(110%);
+}
+
+.header-project-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .main-window {
   flex: 1;
-  background: yellow;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: calc(50% - 0.5rem) calc(50% - 0.5rem);
@@ -41,33 +117,103 @@ body {
 
 .main-window section {
   list-style: none;
-  background: blue;
   display: grid;
   grid-template-rows: 60px minmax(0, 1fr);
+  background: var(--color-white);
+  border-radius: 5px;
+  box-shadow: 0 2px 2px 0 darkgray;
 }
 
 .section-header {
-  background: orange;
   display: flex;
   align-items: center;
+  padding: 0 2rem;
+  background: var(--color-secondary);
+  color: rgba(0, 0, 0, 0.783);
+  font-size: 1.2rem;
+  font-weight: 300;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .section-header-title {
-  padding-left: 2rem;
+  flex: 1;
+}
+
+.new-entry-button-icon {
+  font-size: 32px;
+}
+
+.new-entry-button-icon:hover {
+  color: var(--color-primary-dark);
+  font-variation-settings: 'FILL' 1;
 }
 
 .todo-section {
   grid-row: span 2;
 }
 
+.todo-list > :nth-child(2n) {
+  background: #f3f3f3;
+}
+
 .todo-entry {
-  background: pink;
   display: flex;
   height: 40px;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
+  justify-content: space-evenly;
+  gap: 2rem;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+  color: rgba(0, 0, 0, 0.694);
+  font-weight: 300;
+  transition: background-color 0.3s;
 }
+
+.todo-entry:hover {
+  background-color: #e5e5e5;
+  cursor: pointer;
+}
+
+.todo-entry-delete-button {
+  padding-right: 2.2rem;
+}
+
+.todo-entry-delete-button:hover {
+  color: rgb(220, 80, 73);
+}
+
+.todo-entry-duedate {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.todo-entry-title {
+  flex: 1;
+  color:rgba(0, 0, 0, 0.767);
+  font-weight: 400;
+}
+
+.priority-low, .priority-normal, .priority-high {
+  width: 1.5rem;
+  height: 100%;
+  display: block;
+}
+
+.priority-low {
+  background: #7dd3fc;
+}
+
+.priority-normal {
+  background: #fef3c7;
+}
+
+.priority-high {
+  background: #f87171;
+}
+
 
 .note-container {
   overflow-y: auto;
@@ -75,14 +221,14 @@ body {
 
 .note-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1rem;
   padding: 1rem;
 }
 
 .note-entry {
-  background: green;
   padding: 1rem;
+  min-height: 150px;
 }
 
 .note-entry-title {
@@ -95,16 +241,14 @@ body {
 
 .checklist-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   padding: 1rem;
   gap: 1rem;
   overflow: auto;
 }
 
 .checklist-entry {
-  background: magenta;
   overflow: auto;
-  min-width: 25%;
   min-height: 250px;
 }
 
@@ -125,5 +269,105 @@ body {
 }
 
 .checklist-member-content {
+  flex: 1;
+}
+
+.entry-form-wrapper {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.313);
+  z-index: 1;
+}
+
+.entry-form-container {
+  background: rgb(255, 255, 255);
+  position: absolute;
+  width: 400px;
+  margin: auto;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgb(145, 145, 145);
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+form button {
+  background: none;
+  border: none;
+  background: var(--color-primary);
+  width: min-content;
+  justify-self: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  border-radius: 5px;
+}
+
+form button:hover {
+  background: var(--color-primary-dark);
+  cursor: pointer;
+}
+
+form label {
+  font-weight: 300;
+}
+
+form input,
+textarea {
+  font-family: sans-serif;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.534);
+}
+
+form h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.form-hidden {
+  display: none !important;
+}
+
+.new-entry-button-icon {
+  cursor: pointer;
+}
+
+#todo-form fieldset {
+  display: grid;
+  place-content: center;
+  grid-template-columns: min-content min-content;
+  gap: 1rem;
+}
+
+#todo-form legend {
+  margin-bottom: 1rem;
+}
+
+.checklist-form-members-label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checklist-form-new-member-button {
+  font-size: 2rem;
+}
+
+.checklist-form-member,
+.checklist-form-default-member {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checklist-form-member-content {
   flex: 1;
 }
