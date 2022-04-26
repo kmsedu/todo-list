@@ -124,7 +124,7 @@ const dataHandler = (() => {
     for (let i = 0; i < checklistMemberElements.length; i++) {
       const checklistEntry = checklistMemberElements[i]
 
-      const checklistEntryContent = document.querySelector('.checklist-form-member-content').value
+      const checklistEntryContent = checklistEntry.querySelector('.checklist-form-member-content').value
       const checklistEntryIsCompleted = checklistEntry.querySelector('input[type="checkbox"]').checked
 
       checklistMembers.push({
