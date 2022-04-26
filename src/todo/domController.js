@@ -154,13 +154,8 @@ const domController = (() => {
 
     if (form.id === 'todo-form' && !editMode) setTodoMinDueDateToNow()
 
-    const checkboxFormMembersContainer = form.querySelector(
-      '#checklist-form-members-container'
-    )
-    if (
-      form.id === 'checklist-form' &&
-      checkboxFormMembersContainer.children.length < 1
-    ) {
+    const checkboxFormMembersContainer = form.querySelector('#checklist-form-members-container')
+    if (form.id === 'checklist-form' && checkboxFormMembersContainer.children.length < 1) {
       addChecklistMember()
     }
 

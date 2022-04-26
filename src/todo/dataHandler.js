@@ -117,21 +117,15 @@ const dataHandler = (() => {
 
   const getChecklistMembers = () => {
     const checklistForm = document.forms.namedItem('checklist-form')
-    const checklistContainer = checklistForm.querySelector(
-      '#checklist-form-members-container'
-    )
+    const checklistContainer = checklistForm.querySelector('#checklist-form-members-container')
     const checklistMemberElements = checklistContainer.children
     const checklistMembers = []
 
     for (let i = 0; i < checklistMemberElements.length; i++) {
       const checklistEntry = checklistMemberElements[i]
-      if (checklistEntry.id === 'checklist-form-new-member-container') continue
 
-      const checklistEntryContent =
-        checklistEntry.querySelector('input[type="text"]').value
-      const checklistEntryIsCompleted = checklistEntry.querySelector(
-        'input[type="checkbox"]'
-      ).checked
+      const checklistEntryContent = document.querySelector('.checklist-form-member-content').value
+      const checklistEntryIsCompleted = checklistEntry.querySelector('input[type="checkbox"]').checked
 
       checklistMembers.push({
         content: checklistEntryContent,
