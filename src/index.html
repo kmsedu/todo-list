@@ -11,13 +11,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo</title>
+  <title>Only Do - For when there is no try.</title>
 </head>
 
 <body>
 
   <div class="entry-form-wrapper form-hidden">
     <div class="entry-form-container">
+      <span class="form-close-button material-symbols-rounded">close</span>
       <form id="project-form" class="form-hidden" autocomplete="off">
         <h2>New project</h2>
         <label for="project-form-title">Title:</label>
@@ -58,12 +59,12 @@
         <input type="text" name="checklist-form-title" id="checklist-form-title" required>
         <div class="checklist-form-members-label">
           <p>Checklist:</p>
-          <a class="checklist-form-new-member-button">+</a>
+          <span class="checklist-form-new-member-button material-symbols-rounded new-entry-button-icon">add_circle</span>
         </div>
         <div id="checklist-form-members-container">
           <div class="checklist-form-default-member">
             <input type="checkbox">
-            <input type="text" class="checklist-form-member-content"></input>
+            <input type="text" class="checklist-form-member-content" required></input>
           </div>
         </div>
         <button type="button" id="checklist-form-create-button">Create</button>
@@ -74,7 +75,7 @@
   <header class="main-header">
     <section class="header-title-section">
       <h1 class="header-title">
-        <a href="#">todo</a>
+        <a href="#">Only Do</a>
       </h1>
     </section>
 
@@ -84,7 +85,7 @@
         <optgroup>
         </optgroup>
       </select>
-      <span class="header-project-new-button new-entry-button material-symbols-rounded">add_circle</span>
+      <span class="header-project-new-button material-symbols-rounded">add_circle</span>
       <span class="header-project-delete-button material-symbols-rounded">delete</span>
     </section>
   </header>
@@ -97,14 +98,6 @@
         </div>
       </header>
       <ul class="todo-list">
-        <!-- <li class="todo-entry">
-          <h3 class="todo-entry-title">Test Todo</h3>
-          <p class="todo-entry-duedate">Thursday, 25 April 2022 12:00pm</p>
-          <div class="todo-entry-tools">
-            <span class="todo-entry-edit-button">E</span>
-            <span class="todo-entry-delete-button">X</span>
-          </div>
-        </li> -->
       </ul>
     </section>
 
@@ -112,19 +105,11 @@
       <header class="section-header">
         <h2 class="section-header-title">Notes:</h2>
         <div class="note-new-button new-entry-button">
-          <span class="note-new-button-icon new-entry-button-icon">+</span>
+          <span class="note-new-button-icon new-entry-button-icon material-symbols-rounded">add_circle</span>
         </div>
       </header>
       <div class="note-container">
         <ul class="note-list">
-          <!-- <li class="note-entry">
-              <h3 class="note-entry-title">Test Note</h3>
-              <p class="note-entry-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem excepturi voluptatem, autem explicabo dolores ipsum.</p>
-              <div class="note-entry-tools">
-                <span class="note-entry-edit-button">E</span>
-                <span class="note-entry-delete-button">X</span>
-              </div>
-            </li> -->
         </ul>
       </div>
     </section>
@@ -132,135 +117,10 @@
       <header class="section-header">
         <h2 class="section-header-title">Checklists:</h2>
         <div class="checklist-new-button new-entry-button">
-          <span class="checklist-new-button-icon new-entry-button-icon">+</span>
+          <span class="checklist-new-button-icon new-entry-button-icon material-symbols-rounded">add_circle</span>
         </div>
       </header>
       <div class="checklist-container">
-        <!-- <div class="checklist-entry">
-          <h3 class="checklist-entry-title">Test Checklist</h3>
-          <div class="checklist-entry-member-container">
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-            <div class="checklist-member">
-              <p class="checklist-member-content">Test checklist member</p>
-              <input type="checkbox" class="checklist-member-checkbox">
-              <span class="checklist-member-edit-button">E</span>
-              <span class="checklist-member-delete-button">X</span>
-            </div>
-          </div>
-        </div> -->
     </section>
   </main>
   </div>
