@@ -330,7 +330,7 @@ a {
   filter: brightness(92%);
 }
 
-.checklist-entry-member-container> :nth-child(2) {
+.checklist-entry-member-container > :nth-child(2n) {
   background: #f3f3f3;
 }
 

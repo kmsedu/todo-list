@@ -55,7 +55,7 @@ const elementBuilder = (() => {
       completeButton.classList.add('todo-entry-complete-button')
       completeButton.classList.add('material-symbols-rounded')
       completeButton.classList.add('button-hidden')
-      completeButton.innerText = 'checkmark'
+      completeButton.innerText = 'check'
       completeButton.addEventListener('click', () => {
         if (wrapper.classList.contains('todo-completed')) {
           todoEntry.completed = false
